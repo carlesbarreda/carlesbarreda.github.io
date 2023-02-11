@@ -12,4 +12,7 @@
 !.eslintrc.js
 !README.md
 
-/public/pwa
+# /public/pwa
+*.ico
+*.png
+*.jpg

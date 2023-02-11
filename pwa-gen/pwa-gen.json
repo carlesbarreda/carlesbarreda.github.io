@@ -29,6 +29,11 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "36x36",
+      "type": "image/x-icon"
     }
   ]
 }

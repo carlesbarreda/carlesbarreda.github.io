@@ -4,7 +4,7 @@ pubDatetime: 2023-02-11T01:57:35Z
 title: How to configure PWA
 postSlug: how-to-configure-pwa
 featured: true
-draft: false
+draft: true
 tags:
   - configuration
   - docs
