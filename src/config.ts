@@ -1,7 +1,6 @@
 import type { SocialObjects } from "./types";
 import type { VitePWAOptions } from "vite-plugin-pwa";
 
-//TODO: We need now site and base for set Vite PWA plugin
 export const ARGS: {
   [name: string]: string | undefined;
   mode?: "development" | "production" | undefined;
@@ -43,7 +42,8 @@ export const PWA: Partial<VitePWAOptions> = {
   mode: ARGS.mode,
   base: ARGS.base,
   scope: ARGS.base,
-  includeAssets: ["favicon.svg"],
+  outDir: "dist",
+  includeAssets: ["favicon.ico", "favicon.svg"],
   manifest: {
     name: "Astro Paper",
     short_name: "astro-paper",
@@ -84,7 +84,13 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
   },
   workbox: {
-    globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
+    globDirectory: "dist",
+    globPatterns: [
+      "**/*.{js,html,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,txt}",
+    ],
+    // Don't fallback on document based (e.g. `/some-page`) requests
+    // This removes an errant console.log message from showing up.
+    navigateFallback: null,
   },
   devOptions: {
     enabled: ARGS.mode === "development",
