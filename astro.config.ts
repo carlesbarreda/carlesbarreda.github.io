@@ -5,9 +5,19 @@ import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 
+import AstroPWA from "@vite-pwa/astro";
+
+import { ARGS, PWA } from "./src/config";
+
+console.log(ARGS.site);
+console.log(ARGS.base);
+
+console.log(process.env.NODE_ENV);
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-paper.pages.dev/",
+  site: ARGS.site,
+  base: ARGS.base,
   integrations: [
     tailwind({
       config: {
@@ -16,6 +26,7 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
+    AstroPWA(PWA),
   ],
   markdown: {
     remarkPlugins: [
@@ -31,6 +42,7 @@ export default defineConfig({
       theme: "one-dark-pro",
       wrap: true,
     },
-    extendDefaultPlugins: true,
+    // https://docs.astro.build/en/guides/upgrade-to/v2/#changed-markdown-plugin-configuration
+    //extendDefaultPlugins: true,
   },
 });

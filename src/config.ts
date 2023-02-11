@@ -1,7 +1,28 @@
 import type { SocialObjects } from "./types";
+import type { VitePWAOptions } from "vite-plugin-pwa";
+
+//TODO: We need now site and base for set Vite PWA plugin
+export const ARGS: {
+  [name: string]: string | undefined;
+  mode?: "development" | "production" | undefined;
+} = {};
+ARGS.mode =
+  process.env.NODE_ENV === "development" ? "development" : "production";
+if (ARGS.mode === "development") {
+  ARGS.site = "http://localhost:3000/";
+  ARGS.base = undefined;
+} else {
+  ARGS.site = "https://astro-paper.pages.dev/";
+  ARGS.base = undefined;
+}
+// Parse argv
+for (let i = 0; i < process.argv.length; i++) {
+  if (process.argv[i] === "--site") ARGS.site = process.argv[++i];
+  if (process.argv[i] === "--base") ARGS.base = process.argv[++i];
+}
 
 export const SITE = {
-  website: "https://astro-paper.pages.dev/",
+  website: ARGS.site,
   author: "Sat Naing",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
   title: "AstroPaper",
@@ -15,6 +36,55 @@ export const LOGO_IMAGE = {
   svg: true,
   width: 216,
   height: 46,
+};
+
+export const PWA: Partial<VitePWAOptions> = {
+  registerType: "prompt",
+  mode: ARGS.mode,
+  base: ARGS.base,
+  scope: ARGS.base,
+  includeAssets: ["favicon.svg"],
+  manifest: {
+    name: "Astro Paper",
+    short_name: "astro-paper",
+    description: "A minimal, responsive and SEO-friendly Astro blog theme.",
+    background_color: "#ffffff",
+    theme_color: "#ffffff",
+    display: "standalone",
+    icons: [
+      {
+        src: "/pwa/manifest-icon-192.maskable.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/pwa/manifest-icon-192.maskable.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/pwa/manifest-icon-512.maskable.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/pwa/manifest-icon-512.maskable.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+    ],
+  },
+  workbox: {
+    globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
+  },
+  devOptions: {
+    enabled: ARGS.mode === "development",
+    navigateFallback: "/404",
+  },
 };
 
 export const SOCIALS: SocialObjects = [

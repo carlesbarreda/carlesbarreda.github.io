@@ -2,6 +2,9 @@
 import { SITE } from "@config";
 import "../styles/base.css";
 
+import ReloadPrompt from "../components/ReloadPrompt.astro";
+import { pwaInfo } from "virtual:pwa-info";
+
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export interface Props {
@@ -32,8 +35,35 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Vite PWA assets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="196x196"
+      href="/pwa/favicon-196.png"
+    />
+    <meta
+      name="msapplication-square70x70logo"
+      content="/pwa/mstile-icon-128.png"
+    />
+    <meta
+      name="msapplication-square150x150logo"
+      content="/pwa/mstile-icon-270.png"
+    />
+    <meta
+      name="msapplication-square310x310logo"
+      content="/pwa/mstile-icon-558.png"
+    />
+    <meta
+      name="msapplication-wide310x150logo"
+      content="/pwa/mstile-icon-558-270.png"
+    />
+    <link rel="apple-touch-icon" href="/pwa/apple-icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- meta name="viewport" content="width=device-width" / -->
+    <!-- link rel="icon" type="image/svg+xml" href="/favicon.svg" / -->
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -82,8 +112,12 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     }
 
     <script is:inline src="/toggle-theme.js"></script>
+
+    <!-- Vite PWA manifest -->
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
   <body>
     <slot />
+    <ReloadPrompt />
   </body>
 </html>
