@@ -19,7 +19,7 @@ export default defineConfig({
   site: ARGS.site,
   base: ARGS.base,
   vite: {
-    base: ARGS.base,
+    base: ARGS.base ? ARGS.base : "/",
   },
   integrations: [
     tailwind({

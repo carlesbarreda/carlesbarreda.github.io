@@ -19,7 +19,7 @@ for (let i = 0; i < process.argv.length; i++) {
   if (process.argv[i] === "--site") ARGS.site = process.argv[++i];
   if (process.argv[i] === "--base") ARGS.base = process.argv[++i];
 }
-ARGS.base = ARGS.base ? ARGS.base : "/";
+//ARGS.base = ARGS.base ? ARGS.base : "/";
 
 export const SITE = {
   website: ARGS.site,
