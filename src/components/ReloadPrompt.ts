@@ -11,7 +11,10 @@ window.addEventListener("load", () => {
 
   let refreshSW: ((reloadPage?: boolean) => Promise<void>) | undefined;
 
-  const refreshCallback = () => refreshSW?.(true);
+  const refreshCallback = () => {
+    console.log("reload");
+    refreshSW?.(true);
+  };
 
   const hidePwaToast = (raf = false) => {
     if (raf) {
