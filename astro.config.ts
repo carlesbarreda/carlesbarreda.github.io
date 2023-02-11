@@ -18,6 +18,9 @@ console.log(process.env.NODE_ENV);
 export default defineConfig({
   site: ARGS.site,
   base: ARGS.base,
+  vite: {
+    base: ARGS.base,
+  },
   integrations: [
     tailwind({
       config: {
