@@ -9,10 +9,11 @@ ARGS.mode =
   process.env.NODE_ENV === "development" ? "development" : "production";
 if (ARGS.mode === "development") {
   ARGS.site = "http://localhost:3000/";
-  ARGS.base = undefined;
+  //ARGS.base = undefined;
+  ARGS.base = "/";
 } else {
   ARGS.site = "https://astro-paper.pages.dev/";
-  ARGS.base = undefined;
+  ARGS.base = "/";
 }
 // Parse argv
 for (let i = 0; i < process.argv.length; i++) {
