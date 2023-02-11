@@ -40,6 +40,7 @@ export const LOGO_IMAGE = {
 
 export const PWA: Partial<VitePWAOptions> = {
   registerType: "prompt",
+  strategies: "generateSW",
   mode: ARGS.mode,
   base: ARGS.base ? ARGS.base : "/",
   scope: ARGS.base ? ARGS.base : "/",
@@ -85,6 +86,9 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
   },
   workbox: {
+    clientsClaim: true,
+    skipWaiting: true,
+    sourcemap: true,
     globDirectory: "dist",
     globPatterns: [
       "**/*.{js,html,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,txt}",
