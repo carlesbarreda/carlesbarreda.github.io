@@ -40,8 +40,8 @@ export const LOGO_IMAGE = {
 export const PWA: Partial<VitePWAOptions> = {
   registerType: "prompt",
   mode: ARGS.mode,
-  base: ARGS.base,
-  scope: ARGS.base,
+  base: ARGS.base ? ARGS.base : "/",
+  scope: ARGS.base ? ARGS.base : "/",
   outDir: "dist",
   includeAssets: ["favicon.ico", "favicon.svg"],
   manifest: {
