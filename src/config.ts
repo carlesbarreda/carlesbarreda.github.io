@@ -86,9 +86,9 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
   },
   workbox: {
-    clientsClaim: true,
-    skipWaiting: true,
-    sourcemap: true,
+    //clientsClaim: true,
+    //skipWaiting: true,
+    //sourcemap: true,
     globDirectory: "dist",
     globPatterns: [
       "**/*.{js,html,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,txt}",
