@@ -9,17 +9,17 @@ ARGS.mode =
   process.env.NODE_ENV === "development" ? "development" : "production";
 if (ARGS.mode === "development") {
   ARGS.site = "http://localhost:3000/";
-  //ARGS.base = undefined;
-  ARGS.base = "/";
+  ARGS.base = undefined;
 } else {
   ARGS.site = "https://astro-paper.pages.dev/";
-  ARGS.base = "/";
+  ARGS.base = undefined;
 }
 // Parse argv
 for (let i = 0; i < process.argv.length; i++) {
   if (process.argv[i] === "--site") ARGS.site = process.argv[++i];
   if (process.argv[i] === "--base") ARGS.base = process.argv[++i];
 }
+ARGS.base = ARGS.base ? ARGS.base : "/";
 
 export const SITE = {
   website: ARGS.site,
