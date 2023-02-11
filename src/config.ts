@@ -76,6 +76,11 @@ export const PWA: Partial<VitePWAOptions> = {
         type: "image/png",
         purpose: "maskable",
       },
+      {
+        src: "/favicon.ico",
+        sizes: "36x36",
+        type: "image/x-icon",
+      },
     ],
   },
   workbox: {
