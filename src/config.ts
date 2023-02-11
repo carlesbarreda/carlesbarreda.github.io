@@ -8,10 +8,10 @@ export const ARGS: {
 ARGS.mode =
   process.env.NODE_ENV === "development" ? "development" : "production";
 if (ARGS.mode === "development") {
-  ARGS.site = "http://localhost:3000/";
+  ARGS.site = "http://localhost:3000";
   ARGS.base = undefined;
 } else {
-  ARGS.site = "https://astro-paper.pages.dev/";
+  ARGS.site = "https://astro-paper.pages.dev";
   ARGS.base = undefined;
 }
 // Parse argv
@@ -95,11 +95,11 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
     // Don't fallback on document based (e.g. `/some-page`) requests
     // This removes an errant console.log message from showing up.
-    navigateFallback: null,
+    //navigateFallback: null,
   },
   devOptions: {
     enabled: ARGS.mode === "development",
-    navigateFallback: "/404",
+    //navigateFallback: "/404",
   },
 };
 
