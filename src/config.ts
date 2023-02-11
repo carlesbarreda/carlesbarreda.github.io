@@ -42,10 +42,10 @@ export const PWA: Partial<VitePWAOptions> = {
   registerType: "prompt",
   strategies: "generateSW",
   mode: ARGS.mode,
-  base: ARGS.base ? ARGS.base : "/",
-  scope: ARGS.base ? ARGS.base : "/",
+  //base: ARGS.base ? ARGS.base : "/",
+  //scope: ARGS.base ? ARGS.base : "/",
   outDir: "dist",
-  includeAssets: ["favicon.ico", "favicon.svg"],
+  includeAssets: ["favicon.svg"],
   manifest: {
     name: "Astro Paper",
     short_name: "astro-paper",
@@ -82,6 +82,7 @@ export const PWA: Partial<VitePWAOptions> = {
         src: "/favicon.ico",
         sizes: "36x36",
         type: "image/x-icon",
+        purpose: "any",
       },
     ],
   },
@@ -95,11 +96,12 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
     // Don't fallback on document based (e.g. `/some-page`) requests
     // This removes an errant console.log message from showing up.
-    //navigateFallback: null,
+    navigateFallback: null,
   },
   devOptions: {
     enabled: ARGS.mode === "development",
-    //navigateFallback: "/404",
+    type: "module",
+    navigateFallback: "/404",
   },
 };
 
