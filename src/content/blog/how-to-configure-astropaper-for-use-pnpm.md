@@ -4,7 +4,7 @@ pubDatetime: 2023-02-11T13:27:18Z
 title: How to configure astropaper for use pnpm
 postSlug: how-to-configure-astropaper-for-use-pnpm
 featured: true
-draft: false
+draft: true
 tags:
   - configuration
   - docs
