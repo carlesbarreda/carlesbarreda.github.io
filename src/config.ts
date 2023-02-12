@@ -47,14 +47,16 @@ export const PWA: Partial<VitePWAOptions> = {
   outDir: "dist",
   includeAssets: ["favicon.svg"],
   manifest: {
-    id: (ARGS.base ? ARGS.base : "/") + "?standalone=true",
+    id: ARGS.base ? ARGS.base : "/",
     start_url: (ARGS.base ? ARGS.base : "/") + "?standalone=true",
-    name: "Astro Paper",
-    short_name: "astro-paper",
+    name: "AstroPaper",
+    short_name: "AstroPaper",
     description: "A minimal, responsive and SEO-friendly Astro blog theme.",
     background_color: "#ffffff",
     theme_color: "#ffffff",
     display: "standalone",
+    orientation: "natural",
+    dir: "ltr",
     icons: [
       {
         src: "/pwa/manifest-icon-192.maskable.png",
@@ -90,9 +92,9 @@ export const PWA: Partial<VitePWAOptions> = {
   },
   //exclude: [/404/, /\//],
   workbox: {
-    clientsClaim: true,
-    skipWaiting: true,
-    sourcemap: true,
+    //clientsClaim: true,
+    //skipWaiting: true,
+    //sourcemap: true,
     /*additionalManifestEntries: [
       { url: "/404", revision: null },
       //{url: 'https://static.express/img/.../connection-lost.svg', revision: null},

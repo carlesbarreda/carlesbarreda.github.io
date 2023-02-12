@@ -2,8 +2,11 @@
 import { SITE } from "@config";
 import "../styles/base.css";
 
-//import ReloadPrompt from "../components/ReloadPrompt.astro";
+import ReloadPrompt from "../components/ReloadPrompt.astro";
 import { pwaInfo } from "virtual:pwa-info";
+
+console.log("pwaInfo");
+console.log(pwaInfo);
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -121,13 +124,13 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     <script is:inline src="/toggle-theme.js"></script>
 
     <!-- Vite PWA manifest -->
-    <script src="/src/AutoUpdate.ts"></script>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- script src="/src/AutoUpdate.ts"></ -->
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-
     <!-- End: Vite PWA manifest -->
   </head>
   <body>
     <slot />
-    <!-- ReloadPrompt / -->
+    <ReloadPrompt />
   </body>
 </html>
