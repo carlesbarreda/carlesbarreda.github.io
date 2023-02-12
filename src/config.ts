@@ -7,6 +7,7 @@ export const ARGS: {
 } = {};
 ARGS.mode =
   process.env.NODE_ENV === "development" ? "development" : "production";
+// Set defaults
 if (ARGS.mode === "development") {
   ARGS.site = "http://localhost:3000";
   ARGS.base = undefined;
@@ -14,12 +15,12 @@ if (ARGS.mode === "development") {
   ARGS.site = "https://astro-paper.pages.dev";
   ARGS.base = undefined;
 }
-// Parse argv
+// TODO: Parse .env files
+// Parse Argo argv
 for (let i = 0; i < process.argv.length; i++) {
   if (process.argv[i] === "--site") ARGS.site = process.argv[++i];
   if (process.argv[i] === "--base") ARGS.base = process.argv[++i];
 }
-//ARGS.base = ARGS.base ? ARGS.base : "/";
 
 export const SITE = {
   website: ARGS.site,
@@ -85,7 +86,7 @@ export const PWA: Partial<VitePWAOptions> = {
       {
         src: "/favicon.ico",
         sizes: "36x36",
-        type: "image/x-icon",
+        type: "image/vnd.microsoft.icon",
         purpose: "any",
       },
     ],

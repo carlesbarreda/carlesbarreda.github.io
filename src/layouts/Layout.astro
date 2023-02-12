@@ -41,12 +41,6 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     <!-- Vite PWA assets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="mask-icon"
-      href="/pwa/manifest-icon-192.maskable.png"
-      color="#ffffff"
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <link
       rel="icon"
       type="image/png"
       sizes="196x196"
@@ -70,6 +64,7 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     />
     <link rel="apple-touch-icon" href="/pwa/apple-icon-180.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#ffffff" />
     <!-- End: Vite PWA assets -->
 
     <!-- meta name="viewport" content="width=device-width" / -->
@@ -124,9 +119,10 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
     <script is:inline src="/toggle-theme.js"></script>
 
     <!-- Vite PWA manifest -->
-    <link rel="manifest" href="/manifest.webmanifest" />
     <!-- script src="/src/AutoUpdate.ts"></ -->
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+    <!-- TODO: pwaInfo is undefined but manifest is generated -->
+    <link rel="manifest" href="/manifest.webmanifest" />
     <!-- End: Vite PWA manifest -->
   </head>
   <body>
