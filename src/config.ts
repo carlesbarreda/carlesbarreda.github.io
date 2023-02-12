@@ -87,7 +87,6 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
   },
   //exclude: [/404/, /\//],
-  exclude: [/404/],
   workbox: {
     clientsClaim: true,
     skipWaiting: true,
@@ -102,13 +101,13 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
     // Don't fallback on document based (e.g. `/some-page`) requests
     // This removes an errant console.log message from showing up.
-    navigateFallback: null,
-    //navigateFallback: "/404",
+    //navigateFallback: null,
+    navigateFallback: "/404",
   },
   devOptions: {
     enabled: ARGS.mode === "development",
     type: "module",
-    //navigateFallback: "/404",
+    navigateFallback: "/404",
   },
 };
 

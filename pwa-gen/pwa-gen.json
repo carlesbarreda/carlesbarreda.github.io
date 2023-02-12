@@ -33,7 +33,8 @@
     {
       "src": "/favicon.ico",
       "sizes": "36x36",
-      "type": "image/x-icon"
+      "type": "image/vnd.microsoft.icon",
+      "purpose": "any"
     }
   ]
 }
