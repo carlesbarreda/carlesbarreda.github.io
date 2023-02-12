@@ -86,6 +86,7 @@ export const PWA: Partial<VitePWAOptions> = {
       },
     ],
   },
+  exclude: [/404/, /\//],
   workbox: {
     //clientsClaim: true,
     //skipWaiting: true,
