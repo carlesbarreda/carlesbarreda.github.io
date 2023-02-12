@@ -1,4 +1,3 @@
-import { registerSW } from "virtual:pwa-register";
 import type { SocialObjects } from "./types";
 import type { VitePWAOptions } from "vite-plugin-pwa";
 
