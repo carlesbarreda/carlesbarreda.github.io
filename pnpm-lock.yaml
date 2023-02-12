@@ -15,6 +15,7 @@ importers:
       '@vite-pwa/astro': ^0.0.1
       astro: ^2.0.8
       astro-eslint-parser: ^0.11.0
+      autoprefixer: ^10.4.13
       commitizen: ^4.3.0
       cz-conventional-changelog: ^3.3.0
       eslint: ^8.33.0
@@ -23,6 +24,7 @@ importers:
       github-slugger: ^2.0.0
       husky: ^8.0.3
       lint-staged: ^13.1.1
+      postcss: ^8.4.21
       prettier: ^2.8.4
       prettier-plugin-tailwindcss: ^0.2.2
       react: ^18.2.0
@@ -34,6 +36,7 @@ importers:
       typescript: ^4.9.5
       vite: ^4.1.1
       vite-plugin-pwa: ^0.14.4
+      workbox-window: ^6.5.4
     dependencies:
       '@astrojs/rss': 2.1.0
       astro: 2.0.10
@@ -42,7 +45,7 @@ importers:
       remark-collapse: 0.1.2
       remark-toc: 8.0.1
       satori: 0.2.3
-      tailwindcss: 3.2.6
+      tailwindcss: 3.2.6_postcss@8.4.21
     devDependencies:
       '@astrojs/react': 2.0.2_ffd5foczrxyy7gyjqbwgwcqlbq
       '@astrojs/sitemap': 1.0.1
@@ -53,19 +56,22 @@ importers:
       '@typescript-eslint/parser': 5.51.0_7kw3g6rralp5ps6mg3uyzz6azm
       '@vite-pwa/astro': 0.0.1
       astro-eslint-parser: 0.11.0
+      autoprefixer: 10.4.13_postcss@8.4.21
       commitizen: 4.3.0
       cz-conventional-changelog: 3.3.0
       eslint: 8.34.0
       eslint-plugin-astro: 0.23.0_eslint@8.34.0
       husky: 8.0.3
       lint-staged: 13.1.1
+      postcss: 8.4.21
       prettier: 2.8.4
       prettier-plugin-tailwindcss: 0.2.2_prettier@2.8.4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       typescript: 4.9.5
       vite: 4.1.1
-      vite-plugin-pwa: 0.14.4_vite@4.1.1
+      vite-plugin-pwa: 0.14.4_xp2zqafvd45jbxqxxvnpcv3lzm
+      workbox-window: 6.5.4
 
 packages:
 
@@ -183,7 +189,7 @@ packages:
       autoprefixer: 10.4.13_postcss@8.4.21
       postcss: 8.4.21
       postcss-load-config: 4.0.1_postcss@8.4.21
-      tailwindcss: 3.2.6
+      tailwindcss: 3.2.6_postcss@8.4.21
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -1843,7 +1849,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.2.6
+      tailwindcss: 3.2.6_postcss@8.4.21
     dev: true
 
   /@tsconfig/node10/1.0.9:
@@ -5808,10 +5814,12 @@ packages:
       '@pkgr/utils': 2.3.1
       tslib: 2.5.0
 
-  /tailwindcss/3.2.6:
+  /tailwindcss/3.2.6_postcss@8.4.21:
     resolution: {integrity: sha512-BfgQWZrtqowOQMC2bwaSNe7xcIjdDEgixWGYOd6AL0CbKHJlvhfdbINeAW76l1sO+1ov/MJ93ODJ9yluRituIw==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
@@ -6173,10 +6181,11 @@ packages:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  /vite-plugin-pwa/0.14.4_vite@4.1.1:
+  /vite-plugin-pwa/0.14.4_xp2zqafvd45jbxqxxvnpcv3lzm:
     resolution: {integrity: sha512-M7Ct0so8OlouMkTWgXnl8W1xU95glITSKIe7qswZf1tniAstO2idElGCnsrTJ5NPNSx1XqfTCOUj8j94S6FD7Q==}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
+      workbox-window: ^6.5.4
     dependencies:
       '@rollup/plugin-replace': 5.0.2_rollup@3.15.0
       debug: 4.3.4

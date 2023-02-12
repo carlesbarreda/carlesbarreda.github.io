@@ -3,7 +3,7 @@ import { SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 
-import ReloadPrompt from "../components/ReloadPrompt.astro";
+//import ReloadPrompt from "../components/ReloadPrompt.astro";
 import { pwaInfo } from "virtual:pwa-info";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -66,6 +66,7 @@ const socialImageURL = new URL(
     />
     <link rel="apple-touch-icon" href="/pwa/apple-icon-180.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- End: Vite PWA assets -->
 
     <!-- meta name="viewport" content="width=device-width" / -->
     <!-- link rel="icon" type="image/svg+xml" href="/favicon.svg" / -->
@@ -119,10 +120,13 @@ const socialImageURL = new URL(
     <script is:inline src="/toggle-theme.js"></script>
 
     <!-- Vite PWA manifest -->
+    <script src="/src/AutoUpdate.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+
+    <!-- End: Vite PWA manifest -->
   </head>
   <body>
     <slot />
-    <ReloadPrompt />
+    <!-- ReloadPrompt / -->
   </body>
 </html>
