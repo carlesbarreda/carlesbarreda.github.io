@@ -48,7 +48,7 @@ export const PWA: Partial<VitePWAOptions> = {
   outDir: "dist",
   includeAssets: ["favicon.svg"],
   manifest: {
-    id: ARGS.base ? ARGS.base : "/",
+    id: (ARGS.base ? ARGS.base : "/") + "?astropaper",
     start_url: (ARGS.base ? ARGS.base : "/") + "?standalone=true",
     name: "AstroPaper",
     short_name: "AstroPaper",
