@@ -17,7 +17,7 @@ console.log(process.env.NODE_ENV);
 // https://astro.build/config
 export default defineConfig({
   site: ARGS.site,
-  //base: ARGS.base,
+  base: ARGS.base,
   /*
   vite: {
     base: ARGS.base ? ARGS.base : "/",

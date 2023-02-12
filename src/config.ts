@@ -1,3 +1,4 @@
+import { registerSW } from "virtual:pwa-register";
 import type { SocialObjects } from "./types";
 import type { VitePWAOptions } from "vite-plugin-pwa";
 
@@ -42,8 +43,8 @@ export const PWA: Partial<VitePWAOptions> = {
   registerType: "prompt",
   strategies: "generateSW",
   mode: ARGS.mode,
-  //base: ARGS.base ? ARGS.base : "/",
-  //scope: ARGS.base ? ARGS.base : "/",
+  base: ARGS.base ? ARGS.base : "/",
+  scope: ARGS.base ? ARGS.base : "/",
   outDir: "dist",
   includeAssets: ["favicon.svg"],
   manifest: {
@@ -96,7 +97,8 @@ export const PWA: Partial<VitePWAOptions> = {
     ],
     // Don't fallback on document based (e.g. `/some-page`) requests
     // This removes an errant console.log message from showing up.
-    navigateFallback: null,
+    navigateFallback: "/404",
+    //navigateFallback: null,
   },
   devOptions: {
     enabled: ARGS.mode === "development",
