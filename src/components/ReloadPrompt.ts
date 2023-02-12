@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
 
   const refreshCallback = () => {
     console.log("reload");
-    refreshSW?.(true);
+    //refreshSW?.(true);
   };
 
   const hidePwaToast = (raf = false) => {
