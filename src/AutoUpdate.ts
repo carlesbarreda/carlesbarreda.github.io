@@ -11,3 +11,5 @@ registerSW({
     console.log("PWA application ready to work offline");
   },
 });
+
+console.log("porca miseria");

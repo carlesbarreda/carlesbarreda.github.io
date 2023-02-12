@@ -47,6 +47,8 @@ export const PWA: Partial<VitePWAOptions> = {
   outDir: "dist",
   includeAssets: ["favicon.svg"],
   manifest: {
+    id: (ARGS.base ? ARGS.base : "/") + "?standalone=true",
+    start_url: (ARGS.base ? ARGS.base : "/") + "?standalone=true",
     name: "Astro Paper",
     short_name: "astro-paper",
     description: "A minimal, responsive and SEO-friendly Astro blog theme.",

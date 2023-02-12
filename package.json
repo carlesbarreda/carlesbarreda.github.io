@@ -36,19 +36,22 @@
     "@typescript-eslint/parser": "^5.51.0",
     "@vite-pwa/astro": "^0.0.1",
     "astro-eslint-parser": "^0.11.0",
+    "autoprefixer": "^10.4.13",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.33.0",
     "eslint-plugin-astro": "^0.23.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.1",
+    "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
-    "vite-plugin-pwa": "^0.14.4"
+    "vite-plugin-pwa": "^0.14.4",
+    "workbox-window": "^6.5.4"
   },
   "config": {
     "commitizen": {
@@ -59,5 +62,13 @@
     "*": [
       "prettier --plugin-search-dir=. --write"
     ]
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "tailwindcss/nesting": {},
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
   }
 }
