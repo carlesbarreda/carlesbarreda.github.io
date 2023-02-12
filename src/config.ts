@@ -90,19 +90,23 @@ export const PWA: Partial<VitePWAOptions> = {
     //clientsClaim: true,
     //skipWaiting: true,
     //sourcemap: true,
+    /*additionalManifestEntries: [
+      { url: "/404", revision: null },
+      //{url: 'https://static.express/img/.../connection-lost.svg', revision: null},
+    ],*/
     globDirectory: "dist",
     globPatterns: [
       "**/*.{js,html,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,txt}",
     ],
     // Don't fallback on document based (e.g. `/some-page`) requests
     // This removes an errant console.log message from showing up.
-    navigateFallback: "/404",
-    //navigateFallback: null,
+    navigateFallback: null,
+    //navigateFallback: "/404",
   },
   devOptions: {
     enabled: ARGS.mode === "development",
     type: "module",
-    navigateFallback: "/404",
+    //navigateFallback: "/404",
   },
 };
 
