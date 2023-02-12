@@ -86,11 +86,12 @@ export const PWA: Partial<VitePWAOptions> = {
       },
     ],
   },
-  exclude: [/404/, /\//],
+  //exclude: [/404/, /\//],
+  exclude: [/404/],
   workbox: {
-    //clientsClaim: true,
-    //skipWaiting: true,
-    //sourcemap: true,
+    clientsClaim: true,
+    skipWaiting: true,
+    sourcemap: true,
     /*additionalManifestEntries: [
       { url: "/404", revision: null },
       //{url: 'https://static.express/img/.../connection-lost.svg', revision: null},
