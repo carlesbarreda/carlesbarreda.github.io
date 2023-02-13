@@ -7,9 +7,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  // https://stackoverflow.com/a/71190961
+  "files.autoSave": "onFocusChange",
 
   "eslint.enable": true,
-  "eslint.debug": true,
+  //"eslint.debug": true,
   "eslint.workingDirectories": [
     { "mode": "auto" }
   ],
@@ -19,7 +21,8 @@
 
   "prettier.enable": true,
   "prettier.withNodeModules": true,
-	"prettier.documentSelectors": ["**/*.astro"],
+	"prettier.documentSelectors": ["**/*.astro", "**/*.ts", "**/*"],
+  "prettier.resolveGlobalModules": true,
   "prettier.prettierPath": "node_modules/prettier/index.js",
 
   "typescript.tsdk": "node_modules/typescript/lib"
