@@ -1,0 +1,26 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
+  "eslint.enable": true,
+  "eslint.debug": true,
+  "eslint.workingDirectories": [
+    { "mode": "auto" }
+  ],
+  "eslint.validate": ["javascript", "astro", "typescript"],
+	"eslint.packageManager": "pnpm",
+  "eslint.nodePath": "node_modules",
+
+  "prettier.enable": true,
+  "prettier.withNodeModules": true,
+	"prettier.documentSelectors": ["**/*.astro"],
+  "prettier.prettierPath": "node_modules/prettier/index.js",
+
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
