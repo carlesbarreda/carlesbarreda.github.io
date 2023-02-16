@@ -15,6 +15,7 @@
     "prepare": "husky install",
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
+    "ci:version": "pnpm changelog && pnpx changeset version && pnpm install --no-frozen-lockfile && git add .",
     "check": "astro check && prettier --plugin-search-dir=. --check . && eslint . && tsc --jsx preserve --noEmit"
   },
   "dependencies": {
