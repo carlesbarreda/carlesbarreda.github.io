@@ -3,27 +3,40 @@ import type { VitePWAOptions } from "vite-plugin-pwa";
 
 export const ARGS: {
   [name: string]: string | undefined;
-  mode?: "development" | "production" | undefined;
+  mode?: "development" | "production";
+  site?: string;
+  base?: string;
 } = {};
-ARGS.mode =
-  process.env.NODE_ENV === "development" ? "development" : "production";
-// Set defaults
-if (ARGS.mode === "development") {
-  ARGS.site = "http://localhost:3000";
-  ARGS.base = undefined;
-} else {
-  ARGS.site = "https://astro-paper.pages.dev";
-  ARGS.base = undefined;
-}
-// TODO: Parse .env files
+
+ARGS.mode = import.meta.env.PROD ? "production" : "development";
+
+ARGS.site = import.meta.env.SITE
+  ? import.meta.env.SITE
+  : import.meta.env.PROD
+  ? "https://astro-paper.pages.dev"
+  : "http://localhost:3000";
+
+//ARGS.base = import.meta.env.BASE_URL ? import.meta.env.BASE_URL : "/";
+ARGS.base = import.meta.env.BASE_URL ?? "/";
+
 // Parse Argo argv
 for (let i = 0; i < process.argv.length; i++) {
   if (process.argv[i] === "--site") ARGS.site = process.argv[++i];
   if (process.argv[i] === "--base") ARGS.base = process.argv[++i];
 }
 
+ARGS.base += !ARGS.base.endsWith("/") ? "/" : "";
+
+// "@vite-pwa/astro": "^0.0.1",
+
+console.log("ARGS");
+console.log(ARGS);
+console.log("Vite env");
+console.log(import.meta.env);
+
 export const SITE = {
-  website: ARGS.site,
+  //website: "https://astro-paper.pages.dev/",
+  website: ARGS.site + ARGS.base,
   author: "Sat Naing",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
   title: "AstroPaper",
@@ -33,23 +46,25 @@ export const SITE = {
 };
 
 export const LOGO_IMAGE = {
-  enable: false,
+  enable: true,
   svg: true,
   width: 216,
   height: 46,
 };
 
 export const PWA: Partial<VitePWAOptions> = {
+  disable: false,
+  mode: ARGS.mode,
+  base: ARGS.base,
+  scope: ARGS.base,
+  outDir: "dist",
   registerType: "prompt",
   strategies: "generateSW",
-  mode: ARGS.mode,
-  base: ARGS.base ? ARGS.base : "/",
-  scope: ARGS.base ? ARGS.base : "/",
-  outDir: "dist",
   includeAssets: ["favicon.svg"],
+  buildBase: ARGS.base,
   manifest: {
-    id: (ARGS.base ? ARGS.base : "/") + "?astropaper",
-    start_url: (ARGS.base ? ARGS.base : "/") + "?standalone=true",
+    id: ARGS.base + "?astropaper",
+    start_url: ARGS.base + "?standalone=true",
     name: "AstroPaper",
     short_name: "AstroPaper",
     description: "A minimal, responsive and SEO-friendly Astro blog theme.",
@@ -60,46 +75,48 @@ export const PWA: Partial<VitePWAOptions> = {
     dir: "ltr",
     icons: [
       {
-        src: "/pwa/manifest-icon-192.maskable.png",
+        src: ARGS.base + "pwa/manifest-icon-192.maskable.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/pwa/manifest-icon-192.maskable.png",
+        src: ARGS.base + "pwa/manifest-icon-192.maskable.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/pwa/manifest-icon-512.maskable.png",
+        src: ARGS.base + "pwa/manifest-icon-512.maskable.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/pwa/manifest-icon-512.maskable.png",
+        src: ARGS.base + "pwa/manifest-icon-512.maskable.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/favicon.ico",
+        src: ARGS.base + "favicon.ico",
         sizes: "36x36",
         type: "image/vnd.microsoft.icon",
         purpose: "any",
       },
     ],
   },
-  //exclude: [/404/, /\//],
   workbox: {
-    //clientsClaim: true,
-    //skipWaiting: true,
-    //sourcemap: true,
-    /*additionalManifestEntries: [
-      { url: "/404", revision: null },
+    /*
+    modifyURLPrefix: {
+      "": ARGS.base,
+    },
+    additionalManifestEntries: [
+      { url: ARGS.base + "404", revision: null },
+      { url: ARGS.base, revision: null },
       //{url: 'https://static.express/img/.../connection-lost.svg', revision: null},
-    ],*/
+    ],
+    */
     globDirectory: "dist",
     globPatterns: [
       "**/*.{js,html,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,txt}",
@@ -107,12 +124,13 @@ export const PWA: Partial<VitePWAOptions> = {
     // Don't fallback on document based (e.g. `/some-page`) requests
     // This removes an errant console.log message from showing up.
     //navigateFallback: null,
-    //navigateFallback: "/404",
+    //navigateFallback: ARGS.base + "404",
+    //navigateFallback: ARGS.base,
   },
   devOptions: {
-    enabled: ARGS.mode === "development",
-    type: "module",
-    //navigateFallback: "/404",
+    enabled: import.meta.env.DEV,
+    type: "classic",
+    //navigateFallback: ARGS.base + "404",
   },
 };
 
@@ -120,7 +138,7 @@ export const SOCIALS: SocialObjects = [
   {
     name: "Github",
     href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Github`,
+    linkTitle: `${SITE.title} on GitHub`,
     active: true,
   },
   {

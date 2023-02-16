@@ -6,18 +6,21 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 
 import AstroPWA from "@vite-pwa/astro";
-
 import { ARGS, PWA } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
+  //site: "https://astro-paper.pages.dev/",
   site: ARGS.site,
   base: ARGS.base,
-  /*
   vite: {
-    base: ARGS.base ? ARGS.base : "/",
+    base: ARGS.base,
+    logLevel: 'info',
+    define: {
+      __SITE__: JSON.stringify(ARGS.site),
+      __BASE__: JSON.stringify(ARGS.base),
+    },
   },
-  */
   integrations: [
     tailwind({
       config: {

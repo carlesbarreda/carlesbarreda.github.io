@@ -1,9 +1,9 @@
 ---
-import { SITE } from "@config";
-import "../styles/base.css";
-
 import ReloadPrompt from "../components/ReloadPrompt.astro";
 import { pwaInfo } from "virtual:pwa-info";
+
+import { SITE } from "@config";
+import "../styles/base.css";
 
 console.log("pwaInfo");
 console.log(pwaInfo);
@@ -44,25 +44,25 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
       rel="icon"
       type="image/png"
       sizes="196x196"
-      href="/pwa/favicon-196.png"
+      href={__BASE__ + "pwa/favicon-196.png"}
     />
     <meta
       name="msapplication-square70x70logo"
-      content="/pwa/mstile-icon-128.png"
+      content={__BASE__ + "pwa/mstile-icon-128.png"}
     />
     <meta
       name="msapplication-square150x150logo"
-      content="/pwa/mstile-icon-270.png"
+      content={__BASE__ + "pwa/mstile-icon-270.png"}
     />
     <meta
       name="msapplication-square310x310logo"
-      content="/pwa/mstile-icon-558.png"
+      content={__BASE__ + "pwa/mstile-icon-558.png"}
     />
     <meta
       name="msapplication-wide310x150logo"
-      content="/pwa/mstile-icon-558-270.png"
+      content={__BASE__ + "pwa/mstile-icon-558-270.png"}
     />
-    <link rel="apple-touch-icon" href="/pwa/apple-icon-180.png" />
+    <link rel="apple-touch-icon" href={__BASE__ + "pwa/apple-icon-180.png"} />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#ffffff" />
     <!-- End: Vite PWA assets -->
@@ -116,14 +116,17 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
       )
     }
 
-    <script is:inline src="/toggle-theme.js"></script>
+    <script is:inline src={__BASE__ + "toggle-theme.js"}></script>
 
     <!-- Vite PWA manifest -->
-    <!-- script src="/src/AutoUpdate.ts"></ -->
+    <!-- script src="/src/AutoUpdate.ts" / -->
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <!-- TODO: pwaInfo is undefined but manifest is generated -->
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="manifest" href={__BASE__ + "manifest.webmanifest"} />
     <!-- End: Vite PWA manifest -->
+    <!-- Document base -->
+    <base href={import.meta.env.SITE + __BASE__} />
+    <!-- End: Document base -->
   </head>
   <body>
     <slot />

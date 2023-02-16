@@ -14,9 +14,9 @@ description: How you can make AstroPaper working offline with PWA.
 
 AstroPaper is a highly customizable Astro blog theme. With AstroPaper, you can customize everything according to your personal taste. This article will explain how you can make some customizations easily in the config file.
 
-WARN  Issues with peer dependencies found
-Peer dependencies that should be installed:
-pnpm add -D @types/react-dom typescript vite
+pnpm remove @types/github-slugger
+pnpm add -w @vite-pwa/astro workbox-window
+pnpm add -w -D @types/react-dom @typescript-eslint/eslint-plugin @vite-pwa/astro prettier-plugin-astro typescript vite vite-plugin-pwa
 
 ## Table of contents
 
@@ -24,8 +24,6 @@ pnpm add -D @types/react-dom typescript vite
 
 https://vite-pwa-org.netlify.app/frameworks/astro.html
 https://docs.astro.build/en/guides/integrations-guide/react/
-
-pnpm add -D @vite-pwa/astro vite-plugin-pwa
 
 // src/env.d.ts
 

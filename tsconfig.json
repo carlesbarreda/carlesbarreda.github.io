@@ -1,21 +1,27 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "target": "ESNext",
     "module": "ESNext",
+    "target": "ESNext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "types": [
       "./.astro/types",
       "astro/client",
-      "vite-plugin-pwa/client",
       "vite-plugin-pwa/info",
+      "vite-plugin-pwa/client",
       "vite-plugin-pwa"
     ],
     "baseUrl": ".",
     "paths": {
       "@*": ["./src/*"]
     }
-  }
+  },
+  "exclude": ["dist", "dev-dist", "node_modules"]
 }
