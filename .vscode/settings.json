@@ -11,7 +11,6 @@
   "files.autoSave": "onFocusChange",
 
   "eslint.enable": true,
-  //"eslint.debug": true,
   "eslint.workingDirectories": [
     { "mode": "auto" }
   ],
@@ -21,7 +20,7 @@
 
   "prettier.enable": true,
   "prettier.withNodeModules": true,
-	"prettier.documentSelectors": ["**/*.astro", "**/*.ts", "**/*"],
+	"prettier.documentSelectors": ["**/*.astro", "**/*.ts", "**/*.js"],
   "prettier.resolveGlobalModules": true,
   "prettier.prettierPath": "node_modules/prettier/index.js",
 
