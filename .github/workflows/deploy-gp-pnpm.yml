@@ -68,7 +68,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       # https://github.com/actions/configure-pages
       # https://github.com/actions/configure-pages/blob/main/action.yml
