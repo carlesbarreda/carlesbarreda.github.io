@@ -57,7 +57,7 @@ importers:
       '@types/workbox-build': 5.1.0
       '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
       '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
-      '@vite-pwa/astro': github.com/carlesbarreda/vite-pwa-astro/33c9205d78732b2d06069e40138229cbd3236d8d_kfiwnay4uprunlfd5kvsv45ubu
+      '@vite-pwa/astro': github.com/carlesbarreda/vite-pwa-astro/c00737a428ce386775e7ed7d28a34369851248c4_kfiwnay4uprunlfd5kvsv45ubu
       astro-eslint-parser: 0.11.0
       commitizen: 4.3.0
       cz-conventional-changelog: 3.3.0
@@ -2517,7 +2517,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001454
-      electron-to-chromium: 1.4.300
+      electron-to-chromium: 1.4.301
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
 
@@ -2987,8 +2987,8 @@ packages:
       jake: 10.8.5
     dev: true
 
-  /electron-to-chromium/1.4.300:
-    resolution: {integrity: sha512-tHLIBkKaxvG6NnDWuLgeYrz+LTwAnApHm2R3KBNcRrFn0qLmTrqQeB4X4atfN6YJbkOOOSdRBeQ89OfFUelnEQ==}
+  /electron-to-chromium/1.4.301:
+    resolution: {integrity: sha512-bz00ASIIDjcgszZKuEA1JEFhbDjqUNbQ/PEhNEl1wbixzYpeTp2H2QWjsQvAL2T1wJBdOwCF5hE896BoMwYKrA==}
 
   /emmet/2.3.6:
     resolution: {integrity: sha512-pLS4PBPDdxuUAmw7Me7+TcHbykTsBKN/S9XJbUOMFQrNv9MoshzyMFK/R57JBm94/6HSL4vHnDeEmxlC82NQ4A==}
@@ -6730,14 +6730,14 @@ packages:
   /zwitch/2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  github.com/carlesbarreda/vite-pwa-astro/33c9205d78732b2d06069e40138229cbd3236d8d_kfiwnay4uprunlfd5kvsv45ubu:
-    resolution: {tarball: https://codeload.github.com/carlesbarreda/vite-pwa-astro/tar.gz/33c9205d78732b2d06069e40138229cbd3236d8d}
-    id: github.com/carlesbarreda/vite-pwa-astro/33c9205d78732b2d06069e40138229cbd3236d8d
+  github.com/carlesbarreda/vite-pwa-astro/c00737a428ce386775e7ed7d28a34369851248c4_kfiwnay4uprunlfd5kvsv45ubu:
+    resolution: {tarball: https://codeload.github.com/carlesbarreda/vite-pwa-astro/tar.gz/c00737a428ce386775e7ed7d28a34369851248c4}
+    id: github.com/carlesbarreda/vite-pwa-astro/c00737a428ce386775e7ed7d28a34369851248c4
     name: '@vite-pwa/astro'
     version: 0.0.1
     peerDependencies:
       astro: ^1.6.0 || ^2.0.0
-      vite-plugin-pwa: ^0.13.3
+      vite-plugin-pwa: ^0.14.4
     dependencies:
       astro: 2.0.13
       vite-plugin-pwa: 0.14.4_xp2zqafvd45jbxqxxvnpcv3lzm
