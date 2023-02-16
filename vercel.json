@@ -1,6 +1,6 @@
 {
   "framework": "astro",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install",
   "devCommand": "pnpm dev --site https://log.carlesbarreda.cat --port $PORT",
   "buildCommand": "pnpm build --site https://log.carlesbarreda.cat",
   "outputDirectory": "dist",
