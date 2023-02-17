@@ -51,7 +51,9 @@ jobs:
         id: pnpm-install
         with:
           version: 7
-          run_install: false
+          run_install: |
+            - recursive: true
+              args: [--no-frozen-lockfile]
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -68,7 +70,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm recursive install --no-frozen-lockfile
 
       # https://github.com/actions/configure-pages
       # https://github.com/actions/configure-pages/blob/main/action.yml
