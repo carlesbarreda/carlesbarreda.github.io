@@ -38,7 +38,7 @@
     "@types/workbox-build": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
-    "@vite-pwa/astro": "carlesbarreda/vite-pwa-astro#feat-astro-2-support",
+    "@vite-pwa/astro": "pwa-astro",
     "astro-eslint-parser": "^0.11.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
