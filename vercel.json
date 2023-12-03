@@ -2,7 +2,7 @@
   "framework": "astro",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "devCommand": "pnpm dev --site https://carlesbarreda-github-io.vercel.app --port $PORT",
-  "buildCommand": "pnpm build --site https://carlesbarreda-github-io.vercel.app",
+  "buildCommand": "pnpm build -- astro_args='--site https://carlesbarreda-github-io.vercel.app'",
   "outputDirectory": "dist",
   "cleanUrls": true,
   "headers": [
