@@ -3,11 +3,13 @@ import { SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 
+/*
 import ReloadPrompt from "../components/ReloadPrompt.astro";
 import { pwaInfo } from "virtual:pwa-info";
 
 console.log("pwaInfo");
 console.log(pwaInfo);
+*/
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -125,13 +127,19 @@ const socialImageURL = new URL(
 
     <!-- Vite PWA manifest -->
     <!-- script src="/src/AutoUpdate.ts"></ -->
+    <!--
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+    -->
     <!-- TODO: pwaInfo is undefined but manifest is generated -->
+    <!--
     <link rel="manifest" href="/manifest.webmanifest" />
+    -->
     <!-- End: Vite PWA manifest -->
   </head>
   <body>
     <slot />
+    <!--
     <ReloadPrompt />
+    -->
   </body>
 </html>
