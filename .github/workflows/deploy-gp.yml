@@ -89,7 +89,7 @@ jobs:
       # https://github.com/actions/upload-pages-artifact
       # https://github.com/actions/upload-pages-artifact/blob/main/action.yml
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ${{ env.BUILD_PATH }}/dist
